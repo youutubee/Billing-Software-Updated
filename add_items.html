@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Items</title>
+    <link rel="stylesheet" href="add_items.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Add Items</h2>
+            <form id="addItemForm">
+                <label for="categorySelect">Select Category:</label>
+                <select id="categorySelect" name="category" onchange="populateSizes()">
+                    <!-- Categories will be populated here dynamically -->
+                </select>
+
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" name="itemName" required>
+                
+                <div id="sizesContainer">
+                </div>
+                
+                <button type="button" id="addSizeButton">Add Size</button>
+                
+                <div class="form-buttons">
+                    <button type="submit" id="saveButton">Save</button>
+                    <button type="button" id="cancelButton">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categorySelect = document.getElementById('categorySelect');
+            const categories = JSON.parse(localStorage.getItem('categories')) || [];
+            
+            categories.forEach((category, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = category.name;
+                categorySelect.appendChild(option);
+            });
+        });
+
+        function populateSizes() {
+            const categoryIndex = document.getElementById('categorySelect').value;
+            const sizesContainer = document.getElementById('sizesContainer');
+            sizesContainer.innerHTML = ''; // Clear previous sizes
+
+            const categories = JSON.parse(localStorage.getItem('categories')) || [];
+            const selectedCategory = categories[categoryIndex];
+
+            if (selectedCategory) {
+                sizesContainer.innerHTML = `
+                    <h3>Item Prices (${selectedCategory.name} Sizes):</h3>
+                    ${selectedCategory.sizes.map((size, index) => `
+                        <div class="size-input">
+                            <label for="size${index}">${size}:</label>
+                            <input type="hidden" name="size[]" value="${size}">
+                            <input type="text" name="price[]" placeholder="Enter price" required>
+                        </div>
+                    `).join('')}
+                `;
+            }
+        }
+
+        document.getElementById('addSizeButton').addEventListener('click', function() {
+            const sizesContainer = document.getElementById('sizesContainer');
+            const sizeInput = document.createElement('div');
+            sizeInput.classList.add('size-input');
+            sizeInput.innerHTML = `
+                <label for="size">Size:</label>
+                <input type="text" name="size[]" placeholder="Enter size" required>
+                <label for="price">Price:</label>
+                <input type="text" name="price[]" placeholder="Enter price" required>
+            `;
+            sizesContainer.appendChild(sizeInput);
+        });
+
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            window.close();
+        });
+
+        document.getElementById('addItemForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const categoryIndex = document.getElementById('categorySelect').value;
+            const itemName = document.getElementById('itemName').value;
+            const sizeElements = document.querySelectorAll('.size-input');
+            const sizes = Array.from(sizeElements).map(el => ({
+                size: el.querySelector('[name="size[]"]').value,
+                price: el.querySelector('[name="price[]"]').value
+            }));
+            
+            const categories = JSON.parse(localStorage.getItem('categories')) || [];
+            categories[categoryIndex].items.push({ name: itemName, prices: sizes.map(s => s.price) });
+            localStorage.setItem('categories', JSON.stringify(categories));
+            
+            alert('Item added successfully!');
+            window.close();
+        });
+    </script>
+</body>
+</html>

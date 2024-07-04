@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="inventory.css">
+</head>
+<body>
+    <div class="container">
+        <div class="inventory-display" id="inventoryDisplay">
+            <h2>Inventory Management</h2>
+            <!-- Categories will be dynamically loaded here -->
+        </div>
+        <div class="button-container">
+            <a href="add_category.html" target="_blank" class="main-button">Add Category</a>
+            <a href="add_items.html" target="_blank" class="main-button">Add Items</a>
+            <a href="update_prices.html" target="_blank" class="main-button">Update Price</a>
+            <button class="main-button">Print Item List</button>
+            <button class="main-button">View Item List</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inventoryDisplay = document.getElementById('inventoryDisplay');
+            const categories = JSON.parse(localStorage.getItem('categories')) || [];
+
+            categories.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.classList.add('category');
+                categoryDiv.innerHTML = `
+                    <h3>${category.name}</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                ${category.sizes.map(size => `<th>${size}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${(category.items || []).map(item => `
+                                <tr>
+                                    <td>${item.name}</td>
+                                    ${item.prices.map(price => `<td>${price}</td>`).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                `;
+                inventoryDisplay.appendChild(categoryDiv);
+            });
+        });
+    </script>
+</body>
+</html>

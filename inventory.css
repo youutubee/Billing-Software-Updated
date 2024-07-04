@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: burlywood;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.header {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 20px;
+}
+
+.main-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(224, 124, 25, 0.882);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.main-button:hover {
+    background-color: orange;
+}
+
+.inventory-display {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.inventory-display h2 {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.category {
+    margin-bottom: 20px;
+}
+
+.category h3 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th, tbody td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: center;
+}
+
+thead th {
+    background-color: #9e5d13;
+}
+
+tbody td {
+    background-color: #e87211;
+}

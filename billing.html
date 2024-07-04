@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+    <link rel="stylesheet" href="billing.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Billing</h1>
+        <div class="customer-info">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" placeholder="Enter customer name">
+            
+            <label for="customerAddress">Customer Address:</label>
+            <input type="text" id="customerAddress" placeholder="Enter customer address">
+        </div>
+        <div class="search-container">
+            <label for="searchProduct">Product Name:</label>
+            <input type="text" id="searchProduct" placeholder="Search for a product">
+            <div id="suggestions"></div>
+        </div>
+        <div class="product-info">
+            <label for="productPrice">Price:</label>
+            <input type="text" id="productPrice" readonly>
+            
+            <label for="productQuantity">Quantity:</label>
+            <input type="number" id="productQuantity" min="1" value="1">
+            
+            <label for="productDiscount">Discount (%):</label>
+            <input type="number" id="productDiscount" min="0" value="0">
+            
+            <button id="addProductButton">Add Product</button>
+        </div>
+        <div class="bill-container">
+            <table id="billTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Size</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Discount (%)</th>
+                        <th>Price After Discount</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody id="billTableBody">
+                    <!-- Billing details will be dynamically added here -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"><strong>Total Items:</strong></td>
+                        <td id="totalItems">0</td>
+                        <td colspan="3" style="text-align: right;"><strong>Total Price:</strong></td>
+                        <td id="totalPrice">0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button id="printBillButton">Print Bill</button>
+        </div>
+    </div>
+    <script src="billing.js"></script>
+</body>
+</html>

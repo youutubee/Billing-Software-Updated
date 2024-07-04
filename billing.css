@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: orange;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: burlywood;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.customer-info, .search-container, .product-info {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#suggestions {
+    border: 1px solid #ddd;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#suggestions div {
+    padding: 8px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+#suggestions div:hover {
+    background-color: #f0f0f0;
+}
+
+.bill-container {
+    margin-top: 20px;
+}
+
+.bill-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bill-container th, .bill-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

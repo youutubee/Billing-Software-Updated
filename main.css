@@ -1,0 +1,65 @@
+/* Basic reset and styling for the body */
+body {
+    font-family: Arial, sans-serif; /* Use Arial font */
+    background-color: burlywood ;/* Light  background */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Container styling */
+.container {
+    display: flex; /* Use flexbox to align items */
+    width: 90%; /* 90% of the viewport width */
+    max-width: 1200px; /* Maximum width of 1200px */
+    height: 70vh; /* 70% of the viewport height */
+    background-color: burlywood; /* Blue background */
+    align-items: center; /* Align items vertically center */
+    justify-content: space-between; /* Space items evenly */
+    position: relative; /* Position relative for absolute positioning */
+}
+
+/* Header styling on the left-hand side */
+.header {
+    background-color: burlywood; /* Blue background for the header */
+    width: 60%; /* 60% of the container width */
+    height: 100%; /* Full height of the container */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically center */
+    justify-content: center; /* Center items horizontally */
+    color: lightcyan; /* White text color */
+    font-size: 60px; /* Font size */
+    font-weight: bold; /* Bold text */
+}
+
+/* Button container styling on the right-hand side */
+.button-container {
+    display: flex; /* Use flexbox for buttons */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-end; /* Align buttons to the end */
+    height: 100%; /* Full height of the container */
+    justify-content: center; /* Center buttons vertically */
+    margin-right: 20px; /* Margin to the right */
+}
+
+/* Button styling */
+.main-button {
+    width: 200px; /* Width of buttons */
+    height: 50px; /* Height of buttons */
+    background-color: rgba(224, 124, 25, 0.882); /* White background */
+    color: black; /* Black text color */
+    font-size: 20px; /* Font size */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 20px; /* Space between buttons */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+/* Button hover effect */
+.main-button:hover {
+    background-color: orange; /* Light gray on hover */
+}

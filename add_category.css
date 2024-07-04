@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: burlywood;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.container {
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(224, 124, 25, 0.882);
+    border-radius: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#sizesContainer {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.size-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.size-input input[type="text"] {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.size-input select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(230, 159, 36);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: orange;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}

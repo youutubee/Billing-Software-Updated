@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: burlywood;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.container {
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(224, 124, 25, 0.882);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#sizesContainer {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.size-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.size-input label {
+    margin-right: 10px;
+}
+
+.size-input input[type="text"] {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    width: 100%;
+}
+
+.form-buttons button {
+    margin-left: 10px; /* Add space between buttons */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(230, 159, 36);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: orange;
+}

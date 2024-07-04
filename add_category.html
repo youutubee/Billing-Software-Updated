@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+    <link rel="stylesheet" href="add_category.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Add Category</h2>
+            <form id="categoryForm">
+                <label for="categoryName">Category Name:</label>
+                <input type="text" id="categoryName" name="categoryName" required>
+                
+                <div id="sizesContainer">
+                    <h3>Sizes:</h3>
+                </div>
+                
+                <button type="button" id="addSizeButton">Add Size</button>
+                
+                <div class="form-buttons">
+                    <button type="submit" id="saveButton">Save</button>
+                    <button type="button" id="cancelButton">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('addSizeButton').addEventListener('click', function() {
+            const sizesContainer = document.getElementById('sizesContainer');
+            const sizeInput = document.createElement('div');
+            sizeInput.classList.add('size-input');
+            sizeInput.innerHTML = `
+                <input type="text" name="size[]" placeholder="Enter size" required>
+                <select name="unit[]">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="m">m</option>
+                </select>
+            `;
+            sizesContainer.appendChild(sizeInput);
+        });
+
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            window.close();
+        });
+
+        document.getElementById('categoryForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const categoryName = document.getElementById('categoryName').value;
+            const sizeElements = document.querySelectorAll('[name="size[]"]');
+            const sizes = Array.from(sizeElements).map(el => el.value);
+            const categories = JSON.parse(localStorage.getItem('categories')) || [];
+            
+            categories.push({ name: categoryName, sizes: sizes, items: [] });
+            localStorage.setItem('categories', JSON.stringify(categories));
+            
+            alert('Category saved successfully!');
+            window.close();
+        });
+    </script>
+</body>
+</html>

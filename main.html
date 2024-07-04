@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Window</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Kashish Enterprises</h1>
+        </header>
+        <div class="button-container">
+            <button class="main-button" onclick="openInventory()">Inventory</button>
+            <button class="main-button" onclick="openBilling()">Billing</button> 
+            <button class="main-button" onclick="openSettings()">Settings</button>
+        </div>
+    </div>
+
+    <script>
+        function openInventory() {
+            window.location.href = 'inventory.html'; 
+        }
+
+        function openBilling() {
+            window.location.href = 'billing.html';  // Update this line
+        }
+
+        function openSettings() {
+            window.location.href = 'settings.html'; 
+        }
+    </script>
+</body>
+</html>
